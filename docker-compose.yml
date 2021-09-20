@@ -1,26 +1,17 @@
 version: '3.7'
-services:
-  mysql:
+services:      
+  innova_back:
     build: 
-      context: db
-    container_name: mysql
+      context: repos/innova_core
+    container_name: innova_core
     restart: always
     ports: 
-      - 23306:3306  
-    environment:
-      MYSQL_ROOT_PASSWORD: "1234"
-      MYSQL_DATABASE: "innova_core"
-      MYSQL_USER: "innova"
-      MYSQL_PASSWORD: "1234"
+      - 9090:9090
     volumes:
-      - ./db/schemas:/var/lib/mysql:rw
+      - ./logs_core:/usr/app/logs:rw 
     networks:
-      innova_network:
-        aliases: 
-          - mysql_host
+      - net
 volumes: 
   schemas: {}
 networks:
-  innova_network:
-    name: innova_net
-    driver: bridge
+  net:

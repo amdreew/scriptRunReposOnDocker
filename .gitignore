@@ -1,2 +1,4 @@
 /repos
-/db/schemas
+/db
+/logs_core
+/postgres

@@ -1,7 +1,7 @@
 @echo off
 SET workspace=repos
-SET urlFront=%1
-SET urlback=%2
+SET repoUrl=%1
+
 IF exist %workspace% ( 
     echo %workspace% exists se eliminara
     RD /S /Q %workspace%
@@ -11,8 +11,7 @@ IF exist %workspace% (
 )
 
 cd %workspace%
-git clone %urlFront%
-git clone %urlback%
+git clone %repoUrl%
+
 cd ..
-
-
+docker-compose up -d

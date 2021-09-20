@@ -2,7 +2,7 @@ version: '3.7'
 services:      
   innova_back:
     build: 
-      context: repos/innova_core
+      context: repos/api_usuarios
     container_name: innova_core
     restart: always
     ports: 

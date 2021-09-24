@@ -2,13 +2,22 @@ version: '3.7'
 services:      
   innova_back:
     build: 
-      context: repos/api_usuarios
+      context: repos/innova_core
     container_name: innova_core
     restart: always
     ports: 
       - 9090:9090
     volumes:
       - ./logs_core:/usr/app/logs:rw 
+    networks:
+      - net
+  innova_front:
+    build: 
+      context: repos/agency_innova
+    container_name: agency_innova
+    restart: always
+    ports: 
+      - 8080:80
     networks:
       - net
 volumes: 
